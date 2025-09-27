@@ -1,0 +1,9 @@
+import numpy as np
+# Function to define the mole fraction equations
+# X: array of mole fractions (X_C02, X_CO, X_H20)
+# phi: equivalence ratio
+def mole_fraction_equations(X,phi):
+    equation_1 = np.sum(X) - 1  # Sum of mole fractions equals 1
+    equation_2 = (X[0] + X[1]) - (phi * (X[2] / 2))  # Ratio of Carbon to Hydrogen
+    equation_3 = 2 * phi * X[0] + 1.11 * phi * X[1] - (2 * (1 + phi))  # Ratio of Hydrogen to Oxygen
+    return [equation_1, equation_2, equation_3]
